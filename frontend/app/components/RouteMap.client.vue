@@ -24,7 +24,7 @@ async function draw() {
   if (destination) markers.push(new AdvancedMarkerElement({map,title:props.company?.name,position:{lat:destination.latitude,lng:destination.longitude}}));
   if (props.route) {
     const path = encoding.decodePath(props.route.encodedPolyline);
-    line = new google.maps.Polyline({map,path,strokeColor:'#0f766e',strokeOpacity:1,strokeWeight:6});
+    line = new google.maps.Polyline({map,path,strokeColor:'#52525b',strokeOpacity:1,strokeWeight:6});
     markers.push(new AdvancedMarkerElement({map,title:'ตำแหน่งเริ่มต้นของคุณ',position:{lat:props.route.origin.latitude,lng:props.route.origin.longitude}}));
     const bounds = new google.maps.LatLngBounds();
     path.forEach(point => bounds.extend(point));
@@ -51,13 +51,13 @@ watch(() => [props.company,props.route],() => {draw().catch(() => {error.value='
 onBeforeUnmount(() => {disposed=true;revision++;line?.setMap(null);markers.forEach(marker => {marker.map=null;});});
 </script>
 <template>
-  <div class="relative h-full min-h-96 bg-slate-100">
+  <div class="relative h-full min-h-96 bg-zinc-100">
     <div ref="element" class="absolute inset-0" aria-label="Google Map แสดงเส้นทางไปบริษัท" />
     <div v-if="error || loading" class="absolute inset-0 flex items-center justify-center p-8 text-center">
-      <div class="max-w-sm rounded-2xl border border-slate-200 bg-white p-8 shadow-sm" role="status">
-        <UIcon :name="loading ? 'i-lucide-loader-circle' : 'i-lucide-map-pinned'" class="mb-4 size-10 text-teal-700" :class="{'animate-spin':loading}" />
-        <p class="font-medium text-slate-800">{{ loading ? 'กำลังโหลดแผนที่' : error }}</p>
-        <p class="mt-2 text-sm leading-6 text-slate-500">{{ company?.address || 'Siam Cement Rd. Bangsue Bangkok 10800' }}</p>
+      <div class="max-w-sm rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm" role="status">
+        <UIcon :name="loading ? 'i-lucide-loader-circle' : 'i-lucide-map-pinned'" class="mb-4 size-10 text-zinc-700" :class="{'animate-spin':loading}" />
+        <p class="font-medium text-zinc-800">{{ loading ? 'กำลังโหลดแผนที่' : error }}</p>
+        <p class="mt-2 text-sm leading-6 text-zinc-500">{{ company?.address || 'Siam Cement Rd. Bangsue Bangkok 10800' }}</p>
       </div>
     </div>
   </div>
