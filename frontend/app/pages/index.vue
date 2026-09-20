@@ -42,7 +42,7 @@ const duration = computed(() => {
 function time(value:string) {return new Intl.DateTimeFormat('th-TH',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Bangkok'}).format(new Date(value));}
 </script>
 <template>
-  <div class="min-h-screen bg-zinc-50 text-zinc-900">
+  <div class="min-h-screen bg-zinc-200 text-zinc-900">
     <header class="border-b border-zinc-200 bg-white">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
         <NuxtLink to="/" class="flex items-center gap-3" aria-label="Innovate AI หน้าหลัก">
@@ -83,7 +83,7 @@ function time(value:string) {return new Intl.DateTimeFormat('th-TH',{hour:'2-dig
           <ClientOnly><RouteMap class="flex-1" :company="company" :route="route" /><template #fallback><div class="flex flex-1 items-center justify-center bg-zinc-100 text-sm text-zinc-500">กำลังเตรียมแผนที่</div></template></ClientOnly>
         </section>
       </div>
-      <footer class="mt-9 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 pt-5 text-xs text-zinc-400"><p>Innovate AI Co., Ltd. · Bangkok</p><nav class="flex gap-5"><NuxtLink to="/privacy" class="hover:text-zinc-700">ความเป็นส่วนตัว</NuxtLink><NuxtLink to="/terms" class="hover:text-zinc-700">ข้อกำหนดการใช้งาน</NuxtLink></nav></footer>
+      <footer class="mt-9 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-300 pt-5 text-xs text-zinc-600"><p>Innovate AI Co., Ltd. · Bangkok</p><nav class="flex gap-5"><NuxtLink to="/privacy" class="hover:text-zinc-700">ความเป็นส่วนตัว</NuxtLink><NuxtLink to="/terms" class="hover:text-zinc-700">ข้อกำหนดการใช้งาน</NuxtLink></nav></footer>
     </main>
   </div>
 </template>
