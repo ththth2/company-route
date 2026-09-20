@@ -1,0 +1,8 @@
+{
+  "name": "company-route",
+  "private": true,
+  "scripts": {
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "prepare": "git config core.hooksPath .githooks"
+  }
+}

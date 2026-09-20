@@ -1,0 +1,29 @@
+{
+  "name": "company-route-frontend",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "nuxt": "^4.0.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0",
+    "@nuxt/ui": "^4.0.0",
+    "tailwindcss": "^4.1.0",
+    "@googlemaps/js-api-loader": "^2.0.0",
+    "@iconify-json/lucide": "^1.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "vue-tsc": "^3.0.0",
+    "@types/google.maps": "^3.58.0"
+  }
+}

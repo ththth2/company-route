@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: company-route-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: pnpm install --no-frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: GOOGLE_MAPS_API_KEY
+        sync: false
+      - key: COMPANY_LAT
+        sync: false
+      - key: COMPANY_LNG
+        sync: false
+      - key: COMPANY_NAME
+        value: Innovate AI Co., Ltd.
+      - key: COMPANY_ADDRESS
+        value: Siam Cement Rd. Bangsue Bangkok 10800
