@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   css:['~/assets/css/main.css'],
   devtools:{enabled:false},
   colorMode:{preference:'light'},
-  fonts:{provider:'none'},
+  ui:{fonts:false},
   runtimeConfig:{public:{apiBase:'http://localhost:4000',googleMapsApiKey:'',googleMapsMapId:''}},
   app:{head:{htmlAttrs:{lang:'th'},title:'เดินทางมาหาเรา | Innovate AI',meta:[{name:'description',content:'ค้นหาเส้นทางมายัง Innovate AI พร้อมระยะทางและเวลาเดินทางโดยประมาณ'}]}},
 });

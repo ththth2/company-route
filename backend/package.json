@@ -1,6 +1,7 @@
 {
   "name": "company-route-backend",
   "private": true,
+  "packageManager": "pnpm@10.28.2",
   "type": "module",
   "engines": {
     "node": ">=22 <25"
@@ -9,7 +10,7 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "tsx --test test/*.test.ts",
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/test/*.test.js",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

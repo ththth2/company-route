@@ -4,7 +4,7 @@ Thai route finder for Innovate AI Co., Ltd., Siam Cement Rd. Bangsue Bangkok 108
 Nuxt frontend on Vercel, independent Express backend on Render. No database.
 
 ## Requirements
-- Node.js 22, pnpm 10.
+- Node.js 22, pnpm 10.28.2 (pinned in each application).
 - Google Cloud with billing, Maps JavaScript API, and Routes API enabled.
 - Two separate restricted Google keys and a JavaScript map ID for advanced markers.
 - Verified company entrance latitude and longitude. The street address is deliberately not turned into an unverified company pin.
@@ -41,7 +41,7 @@ Production geolocation requires HTTPS; localhost works for development.
 4. ALLOWED_ORIGINS is the exact Vercel production origin without trailing slash. Multiple origins may be comma-separated. Do not allow arbitrary Vercel subdomains.
 5. Verify https://YOUR-SERVICE.onrender.com/api/health and /api/company.
 
-Build: `pnpm install --no-frozen-lockfile && pnpm build`. Start: `pnpm start`. Render provides PORT.
+Build: `pnpm install --frozen-lockfile --prod=false && pnpm build`. Start: `pnpm start`. Render provides PORT. Build dependencies must be installed even when NODE_ENV is production.
 TRUST_PROXY_HOPS=1 matches the configured Render deployment; review when adding proxies.
 Free services can sleep while idle, so the browser allows a longer initial connection wait.
 
@@ -80,6 +80,6 @@ Before going live, test real keys and the confirmed entrance: location permissio
 - https://render.com/docs/deploy-node-express-app
 
 ## Current verification status
-Source and deployment configuration prepared. Secret scanner verified against a synthetic key, a safe placeholder and an env file. Dependency installation was blocked by the execution environment (network EACCES); frontend typecheck/build and backend tests have NOT run. No real Google key or confirmed company coordinates have been supplied. No remote repository or live deployment is connected.
+Backend integration tests (7 cases), backend TypeScript build, frontend typecheck and production build pass. The running UI and policy-page navigation were checked in a browser, including the unconfigured state. Secret scanner verified against a synthetic key, a safe placeholder and an env file. No real Google key or confirmed company coordinates have been supplied, so real map rendering and live route calculations remain unverified. Hosting deployment requires account sign-in and environment configuration.
 
-First run pnpm install in both folders, commit the resulting lockfiles, then change CI and Render installs to --frozen-lockfile for reproducible deployments. The current --no-frozen-lockfile setting permits that initial installation.
+Both application lockfiles are included and ready to commit. CI and Render use frozen lockfiles. Git origin: https://github.com/ththth2/company-route.git. The Vercel Nitro preset also builds successfully. Local verification used Node 24; CI and Render are configured for Node 22.
